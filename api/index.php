@@ -27,6 +27,7 @@ if(isset($_POST['__a'])){
         }
 }else{
     //header("Location: /");
+    echo "helo";
 }
 
 
