@@ -6,6 +6,7 @@
   <meta name="author" content="Yokesh A">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<script> base_url = "web.yokesh.ml";</script>
 <style>
 #snackbar {
   visibility: hidden;
@@ -61,5 +62,5 @@ function notify(data) {
   document.getElementById("snackbar").innerHTML = data;
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
-$.ajax({type: 'POST',url: "/api",data: {__a:'1'},success: function(resultData) { $( "#main" ).html(resultData); }});
+$.ajax({type: 'POST',url: base_url+"/api",data: {__a:'1'},success: function(resultData) { $( "#main" ).html(resultData); }});
 </script>
