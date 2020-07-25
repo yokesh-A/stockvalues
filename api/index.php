@@ -26,7 +26,7 @@ if(isset($_POST['__a'])){
             include 'system/login/loginpage.php';
         }
 }else{
-    header("Location: /");
+    //header("Location: /");
 }
 
 
