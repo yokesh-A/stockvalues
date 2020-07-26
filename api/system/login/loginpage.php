@@ -196,7 +196,8 @@ $("#sumbit").click(function(){
     $.ajax({
       type: 'POST',
       url: "/api",
-      data: {a:'login',dataType: 'text',user:$("#userid").val(),password:$("#password").val()},
+      dataType: 'text',
+      data: {a:'login',user:$("#userid").val(),password:$("#password").val()},
       success: function(resultData) { $( "#main" ).html(resultData); }
 });
   }else{
