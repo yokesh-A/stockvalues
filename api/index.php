@@ -10,9 +10,9 @@ session_start();
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
-if(isset($_POST['a'])){
+if(isset($_POST['access'])){
 
-    if($_POST['a'] == 'login'){
+    if($_POST['access'] == 'login'){
         if($_POST['user'] == $userid AND $_POST['password'] == $password){
             $_SESSION["log"]="open";
         }else{
