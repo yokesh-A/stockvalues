@@ -50,9 +50,7 @@
   to {bottom: 0; opacity: 0;}
 }
 </style>
-<div id="main">
-
-</div>
+<div id="main"></div>
 <div id="snackbar"></div>
 <script>
 function notify(data) {
@@ -65,18 +63,4 @@ $.post("api/",{a: "connect"},
   function(data, status){
     $("#main").html(data)
   });
-</script>
-<script>
-$("#sumbit").click(function(){
-  if( $("#userid").val()!="" && $("#password").val()!=""){
-    $.ajax({
-      type: 'POST',
-      url: "/api",
-      data: {a:'login',user:$("#userid").val(),password:$("#password").val()},
-      success: function(resultData) { $( "#main" ).html(resultData); }
-});
-  }else{
-    notify("Required Fields are Empty");
-  }
-});
 </script>
