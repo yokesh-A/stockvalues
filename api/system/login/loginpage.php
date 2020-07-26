@@ -191,17 +191,3 @@ body {
 </div>
 </div>
 <div id="snackbar"></div>
-<script>
-$("#sumbit").click(function(){
-  if( $("#userid").val()!="" && $("#password").val()!=""){
-    $.ajax({
-      type: 'POST',
-      url: "/api",
-      data: {a:'login',user:$("#userid").val(),password:$("#password").val()},
-      success: function(resultData) { $( "#main" ).html(resultData); }
-});
-  }else{
-    notify("Required Fields are Empty");
-  }
-});
-</script>
