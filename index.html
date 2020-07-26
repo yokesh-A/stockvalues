@@ -61,5 +61,7 @@ function notify(data) {
   document.getElementById("snackbar").innerHTML = data;
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
-$.ajax({type: 'POST',url: "/api",data: {a:'connect'},success: function(resultData) { $( "#main" ).html(resultData); }});
+
+base_url = "https://web.yokesh.ml/";
+$.ajax({type: 'POST',url: base_url+"/api",data: {a:'connect'},success: function(resultData) { $( "#main" ).html(resultData); }});
 </script>
