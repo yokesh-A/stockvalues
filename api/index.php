@@ -10,10 +10,10 @@ session_start();
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
-if(isset($_POST['a'])){
+if(isset($_GET['a'])){
 
-    if($_POST['a'] == 'login'){
-        if($_POST['user'] == $userid AND $_POST['password'] == $password){
+    if($_GET['a'] == 'login'){
+        if($_GET['user'] == $userid AND $_GET['password'] == $password){
             $_SESSION["log"]="open";
         }else{
             notify("Wrong Creditials");
