@@ -192,13 +192,6 @@ body {
 </div>
 <div id="snackbar"></div>
 <script>
-function notify(data) {
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  document.getElementById("snackbar").innerHTML = data;
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
-
 $("#sumbit").click(function(){
   if( $("#userid").val()!="" && $("#password").val()!=""){
     $.ajax({

@@ -61,12 +61,8 @@ function notify(data) {
   document.getElementById("snackbar").innerHTML = data;
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
-$.post("api/",
-  {
-    a: "connect"
-  },
+$.post("api/",{a: "connect"},
   function(data, status){
     $("#main").html(data)
   });
-//$.ajax({type: 'POST',url:"api/",data: {a:'connect'},success: function(resultData) { $( "#main" ).html(resultData); }});
 </script>
