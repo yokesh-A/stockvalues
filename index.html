@@ -62,6 +62,5 @@ function notify(data) {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-base_url = "https://web.yokesh.ml/";
-$.ajax({type: 'POST',url:"/api",data: {access:'connect'},success: function(resultData) { $( "#main" ).html(resultData); }});
+$.ajax({type: 'POST',url:"https://web.yokesh.ml/api/",data: {a:'connect'},success: function(resultData) { $( "#main" ).html(resultData); }});
 </script>
