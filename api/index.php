@@ -12,19 +12,27 @@ function notify($msg) {
   }
 if(isset($_GET['__a'])){
 
-    if($_GET['__a'] == 'login'){
-        if($_GET['user'] == $userid AND $_GET['password'] == $password){
-            $_SESSION["log"]="open";
-        }else{
-            notify("Wrong Creditials");
+        if($_GET['__a'] === 'login'){
+            if($_GET['user'] == $userid AND $_GET['password'] == $password){
+                $_SESSION["log"]="open";
+                $_GET['__a'] = "connect";
+            }else{
+                notify("Wrong Creditials");
+            }
         }
-    }
-    
+
         if(isset($_SESSION["log"])){
-            include 'system/superadmin/dashboard.php';
+            switch($_GET['__a']){
+                case "connect": include 'system/superadmin/dashboard.php';
+                break;
+                case "superadmintabs": include 'system/superadmin/'.$_GET['file'].'.php';
+                break;
+                default:header("Location: /");
+            }
         }else{
             include 'system/login/loginpage.php';
         }
+    
 }else{
     header("Location: /");
 }

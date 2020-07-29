@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .container {
@@ -239,7 +240,7 @@ li.fancyTab.active a {
 <section id="fancyTabWidget" class="tabs t-tabs">
         <ul class="nav nav-tabs fancyTabs" role="tablist">
         
-                    <li class="tab fancyTab active">
+                    <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>	
                         <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-desktop"></span><span class="hidden-xs">Connect</span></a>
                     	<div class="whiteBlock"></div>
@@ -276,68 +277,50 @@ li.fancyTab.active a {
                     </li>
         </ul>
         <div id="myTabContent" class="tab-content fancyTabContent" aria-live="polite">
-                    <div class="tab-pane  fade active in" id="tabBody0" role="tabpanel" aria-labelledby="tab0" aria-hidden="false" tabindex="0">
-                        <div>
-                        	<div class="row">
-                            	
-                                <div class="col-md-12">
-                        			<h2>This is the content of tab one.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                </div>
-                                
+          <div class="tab-pane  fade active in" id="tabBody" role="tabpanel" aria-labelledby="tab0" aria-hidden="false" tabindex="0">
+                            <div class="row">
+                              <div class="col-md-12">
+                                    <h2>Welcome DashBoard.</h2>
+                                    <p>Navigate in above Give Tabs To continue. </p>
+                              </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody1" role="tabpanel" aria-labelledby="tab1" aria-hidden="true" tabindex="0">
-                        <div class="row">
-                            	
-                                <div class="col-md-12">
-                        			<h2>This is the content of tab two.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                   
-                                </div>
-                            </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true" tabindex="0">
-                        <div class="row">
-                                <div class="col-md-12">
-                        			<h2>This is the content of tab three.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                  
-                                </div>
-                            </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true" tabindex="0">
-                    <div class="row">
-                        <div class="col-md-12">
-                        			<h2>This is the content of tab four.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                  
-                                </div>
-                            </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody4" role="tabpanel" aria-labelledby="tab4" aria-hidden="true" tabindex="0">
-                    <div class="row">
-                        <div class="col-md-12">
-                        			<h2>This is the content of tab five.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                  
-                                </div>
-                            </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody5" role="tabpanel" aria-labelledby="tab5" aria-hidden="true" tabindex="0">
-                    <div class="row">
-                        <div class="col-md-12">
-                        			<h2>This is the content of tab six.</h2>
-                                    <p>This field is a rich HTML field with a content editor like others used in Sitefinity. It accepts images, video, tables, text, etc. Street art polaroid microdosing la croix taxidermy. Jean shorts kinfolk distillery lumbersexual pinterest XOXO semiotics. Tilde meggings asymmetrical literally pork belly, heirloom food truck YOLO. Meh echo park lyft typewriter. </p>
-                                  
-                                </div>
-                            </div>
-                    </div>
+          </div>
         </div>
 
     </section>
 </div>
+<script>
+//tab nav
+function navtab(tab,tabname){
+    $.ajax({
+      type: 'GET',
+      url: "api",
+      dataType: 'text',
+      data: {__a: "superadmintabs",file:""+tabname},
+      success: function(Data) {$("#tabBody").html(Data);}
+    });  
+}
+
+$("[role=tab]").click(function(){
+    tab = $(this).attr('aria-controls');
+    tabname = $(this).text();
+    tabid = $(this).attr('id');
+    sessionStorage.setItem("tab", tab);
+    sessionStorage.setItem("tabname", tabname);
+    sessionStorage.setItem("tabid", tabid);
+    navtab(tab,tabname);
+});
+
+$(document).ready(function(){
+    if(sessionStorage.getItem("tabid")){
+        tabid = sessionStorage.getItem("tabid");
+        tab = sessionStorage.getItem("tab");
+        tabname = sessionStorage.getItem("tabname");
+        navtab(tab,tabname);
+        $("li > #"+tabid+"").parent().addClass('active');
+    }
+});
+</script>
 <script>
 
 $(document).ready(function() {
@@ -401,4 +384,5 @@ $('.fancyTabs').each(function() {
 
 });
 });
+
 </script>
