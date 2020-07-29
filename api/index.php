@@ -27,7 +27,7 @@ if(isset($_GET['__a'])){
                 break;
                 case "superadmintabs": if(file_exists('system/superadmin/'.$_GET['file'].'.php')){include 'system/superadmin/'.$_GET['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
                 break;
-                default:header("Location: /");
+                default:echo "<script> windows.location.href='/'; </script>";
             }
         }else{
             include 'system/login/loginpage.php';
