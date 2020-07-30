@@ -296,7 +296,7 @@ function navtab(tab,tabname){
       type: 'GET',
       url: "api",
       dataType: 'text',
-      data: {__a: "superadmintabs",file:""+tabname},
+      data: {aim: "superadmintabs",file:""+tabname},
       success: function(Data) {$("#tabBody").html(Data);}
     });  
 }
