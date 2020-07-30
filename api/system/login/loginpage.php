@@ -198,6 +198,7 @@ $("#sumbit").click(function(){
       url: "api",
       dataType: 'text',
       data: {aim:'login',user:$("#userid").val(),password:$("#password").val()},
+      contentType: "application/x-www-form-urlencoded",
       success: function(resultData) { $( "#main" ).html(resultData); }
 });
   }else{
