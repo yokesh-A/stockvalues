@@ -305,17 +305,17 @@ $("[role=tab]").click(function(){
     tab = $(this).attr('aria-controls');
     tabname = $(this).text();
     tabid = $(this).attr('id');
-    sessionStorage.setItem("tab", tab);
-    sessionStorage.setItem("tabname", tabname);
-    sessionStorage.setItem("tabid", tabid);
+    localStorage.setItem("tab", tab);
+    localStorage.setItem("tabname", tabname);
+    localStorage.setItem("tabid", tabid);
     navtab(tab,tabname);
 });
 
 $(document).ready(function(){
-    if(sessionStorage.getItem("tabid")){
-        tabid = sessionStorage.getItem("tabid");
-        tab = sessionStorage.getItem("tab");
-        tabname = sessionStorage.getItem("tabname");
+    if(localStorage.getItem("tabid")){
+        tabid = localStorage.getItem("tabid");
+        tab = localStorage.getItem("tab");
+        tabname = localStorage.getItem("tabname");
         navtab(tab,tabname);
         $("li > #"+tabid+"").parent().addClass('active');
     }

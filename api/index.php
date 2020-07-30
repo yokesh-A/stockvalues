@@ -10,22 +10,22 @@ session_start();
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
-if(isset($_GET['__a'])){
+if(isset($_REQUEST['__a'])){
 
-        if($_GET['__a'] === 'login'){
-            if($_GET['user'] == $userid AND $_GET['password'] == $password){
+        if($_REQUEST['__a'] === 'login'){
+            if($_REQUEST['user'] == $userid AND $_REQUEST['password'] == $password){
                 $_SESSION["log"]="open";
-                $_GET['__a'] = "connect";
+                $_REQUEST['__a'] = "connect";
             }else{
                 notify("Wrong Creditials");
             }
         }
 
         if(isset($_SESSION["log"])){
-            switch($_GET['__a']){
+            switch($_REQUEST['__a']){
                 case "connect": include 'system/superadmin/dashboard.php';
                 break;
-                case "superadmintabs": if(file_exists('system/superadmin/'.$_GET['file'].'.php')){include 'system/superadmin/'.$_GET['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
+                case "superadmintabs": if(file_exists('system/superadmin/'.$_REQUEST['file'].'.php')){include 'system/superadmin/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
                 break;
                 default:echo "<script> window.location.href='/'; </script>";
             }

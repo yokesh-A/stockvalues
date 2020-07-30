@@ -194,7 +194,7 @@ body {
 $("#sumbit").click(function(){
   if( $("#userid").val()!="" && $("#password").val()!=""){
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: "api",
       dataType: 'text',
       data: {__a:'login',user:$("#userid").val(),password:$("#password").val()},
