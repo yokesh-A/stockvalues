@@ -180,6 +180,7 @@ body {
       <input type="password" name="password" id="password" required="">
       <label>Password</label>
     </div>
+    <input type="hidden" id="access" value="login">
     <a id="sumbit" href="#">
       <span></span>
       <span></span>
@@ -196,7 +197,7 @@ $("#sumbit").click(function(){
     $.ajax({
       url: "api",
       type: 'POST',
-      data: {__a:'login',user:$("#userid").val(),password:$("#password").val()},
+      data: {__a:$("#access").val(),user:$("#userid").val(),password:$("#password").val()},
       success: function(resultData) { $("#main").html(resultData); }
 });
   }else{
