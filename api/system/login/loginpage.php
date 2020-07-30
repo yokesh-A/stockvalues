@@ -194,10 +194,10 @@ body {
 $("#sumbit").click(function(){
   if( $("#userid").val()!="" && $("#password").val()!=""){
     $.ajax({
-      type: 'get',
       url: "api",
-      data: {__a:'login',user:''+$("#userid").val(),password:''+$("#password").val()},
-      success: function(resultData) { $( "#main" ).html(resultData); }
+      type: 'POST',
+      data: {__a:'login',user:$("#userid").val(),password:$("#password").val()},
+      success: function(resultData) { $("#main").html(resultData); }
 });
   }else{
     notify("Required Fields are Empty");
