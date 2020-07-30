@@ -195,7 +195,7 @@ $("#sumbit").click(function(){
   if( $("#userid").val()!="" && $("#password").val()!=""){
     $.ajax({
       type: 'post',
-      url: "api",
+      url: "https://web.yokesh.ml/api",
       data: {__a:'login',user:''+$("#userid").val(),password:''+$("#password").val()},
       success: function(resultData) { $( "#main" ).html(resultData); }
 });
