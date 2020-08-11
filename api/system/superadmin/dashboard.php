@@ -275,6 +275,13 @@ li.fancyTab.active a {
                         <a id="tab5" href="#tabBody5" role="tab" aria-controls="tabBody5" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-question-circle"></span><span class="hidden-xs">Order</span></a>
                         <div class="whiteBlock"></div>
                     </li>
+                    <?php if( $_SESSION["user"] === "superadmin"){ ?>
+                    <li class="tab fancyTab">
+                    <div class="arrow-down"><div class="arrow-down-inner"></div></div>
+                        <a id="tab6" href="#tabBody6" role="tab" aria-controls="tabBody6" aria-selected="true" data-toggle="tab" tabindex="0"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs">Profit</span></a>
+                        <div class="whiteBlock"></div>
+                    </li>
+                    <?php } ?>
         </ul>
         <div id="myTabContent" class="tab-content fancyTabContent" aria-live="polite">
           <div class="tab-pane  fade active in" id="tabBody" role="tabpanel" aria-labelledby="tab0" aria-hidden="false" tabindex="0">

@@ -191,7 +191,17 @@ body {
 </div>
 </div>
 <script>
-$("#sumbit").click(function(){
+$(function(){
+    $(document).on('keydown', function(e){
+        if(e.which == 13){
+          submit();
+        }
+    });
+});
+
+$("#sumbit").click(function(){ submit(); });
+
+function submit(){
   if( $("#userid").val()!="" && $("#password").val()!=""){
     $.ajax({
       url: "api",
@@ -202,5 +212,5 @@ $("#sumbit").click(function(){
   }else{
     notify("Required Fields are Empty");
   }
-});
+}
 </script>
