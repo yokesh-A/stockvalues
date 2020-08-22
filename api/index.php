@@ -35,11 +35,13 @@ if(isset($_REQUEST['__a'])){
             }
         }
 
-        if(isset($_SESSION["log"])){
+        if(isset($_SESSION["log"]) AND $_SESSION["log"] === "open"){
             switch($_REQUEST['__a']){
                 case "connect": include 'system/superadmin/dashboard.php';
                 break;
                 case "superadmintabs": if(file_exists('system/superadmin/'.$_REQUEST['file'].'.php')){include 'system/superadmin/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
+                break;
+                case "models": if(file_exists('system/superadmin/models/'.$_REQUEST['file'].'.php')){include 'system/superadmin/models/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
                 break;
                 case "logout":session_destroy(); echo "<script>window.location.href='/'</script>" ;
                 break;
