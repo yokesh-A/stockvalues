@@ -3,9 +3,9 @@
     <header>Recharge</header>
 </div>
 <div class="in_left">
-    <input type="number" value="5" id="start" placeholder="Opening"/>
+    <input type="number" id="start" placeholder="Opening"/>
     <small></small>
-    <input type="number" value="5" id="end" placeholder="Closing"/>
+    <input type="number" id="end" placeholder="Closing"/>
     <small></small>
     <input type="button" value="INSERT"/>
 </div>

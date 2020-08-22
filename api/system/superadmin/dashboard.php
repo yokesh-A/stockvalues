@@ -248,7 +248,7 @@ li.fancyTab.active a {
                     
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab1" href="#tabBody1" role="tab" aria-controls="tabBody1" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-firefox"></span><span class="hidden-xs">Recharge</span></a>
+                        <a id="tab1" href="#tabBody1" role="tab" aria-controls="tabBody1" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-money"></span><span class="hidden-xs">Recharge</span></a>
                         <div class="whiteBlock"></div>
                     </li>
                     
