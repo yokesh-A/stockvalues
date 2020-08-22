@@ -2,16 +2,6 @@
 
 session_start();
 
-class MyDB extends SQLite3
-{
-    function __construct()
-    {
-        $this->open('mysqlitedb.db');
-    }
-}
-
-$db = new MyDB();
-
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
