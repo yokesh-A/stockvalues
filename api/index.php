@@ -28,7 +28,7 @@ if(isset($_REQUEST['__a'])){
                 $_SESSION["log"]="open";
                 $_SESSION["user"]="superadmin";
                 $_REQUEST['__a'] = "connect";
-            }else{
+            }else{  //normal admin
                 if($_REQUEST['user'] == "user" AND $_REQUEST['password'] == "pass"){
                     $_SESSION["log"]="open";
                     $_SESSION["user"]="user";
@@ -39,6 +39,7 @@ if(isset($_REQUEST['__a'])){
             }
         }
 
+        //display starts
         if(isset($_SESSION["log"]) AND $_SESSION["log"] === "open"){
             switch($_REQUEST['__a']){
                 case "connect": include 'system/superadmin/dashboard.php';
@@ -55,6 +56,7 @@ if(isset($_REQUEST['__a'])){
             if($_REQUEST['__a']==="connect"){include 'system/login/loginpage.php';}
             else{echo "<script> window.location.href='/'; </script>";}
         }
+        //display ends
     
 }else{
     header("Location: /");
