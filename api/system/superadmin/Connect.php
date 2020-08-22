@@ -482,7 +482,7 @@ span.circle {
         </div>
       </div>
     </div>
-
+    
     <script>
     function logout(){
         $.ajax({
