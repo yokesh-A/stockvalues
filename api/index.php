@@ -1,22 +1,26 @@
 <?php
 
 session_start();
+
 //install DB
 if(!file_exists('system/2cheap.db')){
     include 'system/superadmin/install.php';
 }
-//Database Connect
 
+//Database Connect
 class MyDB extends SQLite3 {
     function __construct() {
        $this->open('system/2cheap.db');
     }
  }
  $db = new MyDB();
- //End Database Connectivety 
+
+ //notification function
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
+
+//System Controller
 if(isset($_REQUEST['__a'])){
 
         if($_REQUEST['__a'] === 'login'){ //super admin
@@ -48,7 +52,8 @@ if(isset($_REQUEST['__a'])){
                 default:echo "<script> window.location.href='/'; </script>";
             }
         }else{
-            include 'system/login/loginpage.php';
+            if($_REQUEST['__a']==="connect"){include 'system/login/loginpage.php';}
+            else{echo "<script> window.location.href='/'; </script>";}
         }
     
 }else{
