@@ -332,7 +332,7 @@ span.circle {
           <div class="card__handle">
             <span class="handle">@2cheap</span>
             <span class="circle"></span>
-            <span class="category">Accountant</span>
+            <span class="category"><?php if( $_SESSION["user"] === "superadmin"){ echo "CEO"; }else{ echo "Accountant"; } ?></span>
           </div>
         </div>
         <div class="card__button">
