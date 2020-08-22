@@ -9,10 +9,12 @@
   
     $sql =<<<EOF
     CREATE TABLE recharge
-    (ID INT PRIMARY KEY     NOT NULL,
-    DATE           DATE    NOT NULL,
-    START            INT     NOT NULL,
-    END            INT     NOT NULL,
+    (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    DATE           DATE    NOT NULL UNIQUE,
+    RCSTART            INT,
+    RCEND            INT,
+    CASHSTART            INT,
+    CASHEND            INT,
     CREATED DATETIME DEFAULT CURRENT_TIMESTAMP);
 EOF;
   

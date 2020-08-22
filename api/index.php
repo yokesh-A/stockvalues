@@ -48,6 +48,8 @@ if(isset($_REQUEST['__a'])){
                 break;
                 case "models": if(file_exists('system/superadmin/models/'.$_REQUEST['file'].'.php')){include 'system/superadmin/models/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
                 break;
+                case "savedata": if(file_exists('system/superadmin/models/'.$_REQUEST['file'].'.php')){include 'system/superadmin/models/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
+                break;
                 case "logout":session_destroy(); echo "<script>window.location.href='/'</script>" ;
                 break;
                 default:echo "<script> window.location.href='/'; </script>";
