@@ -1,7 +1,19 @@
 <?php
 
 session_start();
+//install DB
+if(!file_exists('system/2cheap.db')){
+    include 'system/superadmin/install.php';
+}
+//Database Connect
 
+class MyDB extends SQLite3 {
+    function __construct() {
+       $this->open('system/2cheap.db');
+    }
+ }
+ $db = new MyDB();
+ //End Database Connectivety 
 function notify($msg) {
     echo "<script>notify('".$msg."');</script>";
   }
