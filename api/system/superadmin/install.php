@@ -22,7 +22,27 @@ EOF;
      if(!$ret){
         notify($db->lastErrorMsg());
      } else {
-        notify("Installation Completed Successfully...");
+
+   $sql =<<<EOF
+   CREATE TABLE oldmobiles
+   (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   IMEI          CHAR(50)    NOT NULL UNIQUE,
+   MOBILENAME    TEXT    NOT NULL,
+   PRICE         INT NOT NULL,
+   RATE          INT NOT NULL,
+   SOLDOUT       INT,
+   SOLDOUTDATE   DATE,
+   STATUS        CHAR(50)  NOT NULL,
+   CREATED DATETIME DEFAULT CURRENT_TIMESTAMP);
+EOF;
+    
+       $ret = $db->exec($sql);
+       if(!$ret){
+          notify($db->lastErrorMsg());
+       } else {
+          notify("Installation Completed Successfully...");
+       }
+
      }
      $db->close();
 ?>

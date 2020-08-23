@@ -36,7 +36,7 @@ $("#rcsave").click(function(){
       type: 'GET',
       url: "api",
       dataType: 'text',
-      data: {__a: "savedata",file: "saverc",cashopen:""+$("#cashstart").val(),cashclose:""+$("#cashend").val(),rcopen:""+$("#rcstart").val(),rcclose:""+$("#rcend").val(),date:""+$("#date").val()},
+      data: {__a: "models",file: "saverc",cashopen:""+$("#cashstart").val(),cashclose:""+$("#cashend").val(),rcopen:""+$("#rcstart").val(),rcclose:""+$("#rcend").val(),date:""+$("#date").val()},
       success: function(Data) { $("#rechargeturn").html(Data);}
     });
 });

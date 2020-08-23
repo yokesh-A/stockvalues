@@ -1,5 +1,5 @@
 <?php
-
+if( $_SESSION["user"] === "superadmin"){
 $file = "system/2cheap.db";
 
 header('Content-Description: File Transfer');
@@ -10,5 +10,5 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($file));
 header("Content-Type: text/plain");
 readfile($file);
-
+}
 ?>

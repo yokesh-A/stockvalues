@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+date_default_timezone_set("Asia/Kolkata");
 
 //install DB
 if(!file_exists('system/2cheap.db')){
@@ -48,9 +49,7 @@ if(isset($_REQUEST['__a'])){
                 break;
                 case "models": if(file_exists('system/superadmin/models/'.$_REQUEST['file'].'.php')){include 'system/superadmin/models/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
                 break;
-                case "savedata": if(file_exists('system/superadmin/models/'.$_REQUEST['file'].'.php')){include 'system/superadmin/models/'.$_REQUEST['file'].'.php';}else{echo "<h1>Bad Request!</h1>";}
-                break;
-                case "backup":include 'system/superadmin/backupdb.php';
+                case "backup": if( $_SESSION["user"] === "superadmin") include 'system/superadmin/backupdb.php'; else echo "<script> window.location.href='/'; </script>";
                 break;
                 case "logout":session_destroy(); echo "<script>window.location.href='/'</script>" ;
                 break;
