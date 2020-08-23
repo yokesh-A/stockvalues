@@ -73,12 +73,12 @@ while($row = $results->fetchArray()){ ?>
         </button>
       </div>
       <div class="modal-body">
-      <h2><?php echo $row['MOBILENAME']; ?></h2>
+      <h2><?php echo $row['MOBILENAME']; ?> | <?php echo $row['IMEI']; ?></h2>
       <label>SELL AMOUNT:<span class="ui input"><input id="sr<?php echo $row['IMEI']; ?>" type="number"></span></label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="sumbit" role="selloldmoblie" id="<?php echo $row['IMEI']; ?>" data-dismiss="modal" aria-controls="<?php echo $row['IMEI']; ?>" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="sumbit" role="selloldmoblie" id="<?php echo $row['IMEI']; ?>" data-dismiss="modal" aria-controls="<?php echo $row['IMEI']; ?>" class="btn btn-primary">Sell</button>
       </div>
     </div>
   </div>
