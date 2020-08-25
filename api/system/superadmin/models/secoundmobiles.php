@@ -74,7 +74,7 @@ while($row = $results->fetchArray()){ ?>
       </div>
       <div class="modal-body">
       <h2><?php echo $row['MOBILENAME']; ?> | <?php echo $row['IMEI']; ?></h2>
-      <label>SELL AMOUNT:<span class="ui input"><input id="sr<?php echo $row['IMEI']; ?>" type="number"></span></label>
+      <label>SELL AMOUNT:<span class="ui input"><input id="sr<?php echo $row['IMEI']; ?>" type="number" required></span></label>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

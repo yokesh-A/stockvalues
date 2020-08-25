@@ -16,7 +16,7 @@
           <div class="ui label">
             Starting Date:
           </div>
-          <input type="date" id="min" name="min" class="form-control">
+          <input type="date" id="min" name="min" class="form-control" value="<?php echo date("Y-m-d", strtotime("-28 day"));?>">
         </div>
     </div>
     <div class="col-sm-6">
@@ -24,7 +24,7 @@
         <div class="ui label">
         Ending Date:
         </div>
-        <input type="date" class="form-control" id="max" name="max">
+        <input type="date" class="form-control" id="max" name="max" value="<?php echo date("Y-m-d", strtotime("+1 day"));?>">
       </div>
     </div>
 </div>
