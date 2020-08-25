@@ -56,11 +56,11 @@ while($row = $results->fetchArray()){ ?>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php echo $row['IMEI']; ?></td>
                                                 <td><?php echo $row['MOBILENAME']; ?></td>
-                                                <td><?php echo $row['RATE']; ?></td>
-                                                <td><?php if(empty($row['SOLDOUT'])) echo 0; else echo $row['SOLDOUT']; ?></td>
+                                                <td>₹ <?php echo $row['RATE']; ?></td>
+                                                <td>₹ <?php if(empty($row['SOLDOUT'])) echo 0; else echo $row['SOLDOUT']; ?></td>
                                                 <td><?php echo $row['STATUS']; ?></td>
                                                 <td><?php if(empty($row['SOLDOUTDATE'])) echo $row['CREATED']; else echo $row['SOLDOUTDATE']; ?></td>
-                                                <td><?php if(empty($row['SOLDOUT'])) echo 0; else echo ($row['SOLDOUT']-$row['RATE']); ?></td>
+                                                <td>₹ <?php if(empty($row['SOLDOUT'])) echo 0; else echo ($row['SOLDOUT']-$row['RATE']); ?></td>
                                                 
                                             </tr>
                               <?php
