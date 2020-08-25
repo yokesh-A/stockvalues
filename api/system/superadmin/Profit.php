@@ -104,7 +104,7 @@ $.fn.dataTable.ext.search.push(
         initComplete: function () {
             this.api().columns(5).every( function () {
                 var column = this;
-                var select = $('<select class="ui dropdown"><option value=""></option></select>')
+                var select = $('<select class="ui dropdown"><option value="">Show All</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
