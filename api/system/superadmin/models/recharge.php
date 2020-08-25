@@ -8,17 +8,6 @@ $row = $results->fetchArray();
     <header>Recharge</header>
 </div>
 <div class="in_left">
-    <small>Opening in Cash</small>
-    <input type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
-    <small>Opening Balance</small>
-    <input type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
-    <small>Closing in Cash</small>
-    <input type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
-    <small>Closing Balance</small>
-    <input type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
-    
-    <input id="rcsave" type="button" value="SAVE"/>
-</div>
 <h3>Profit </h3> <span class="fg" id="rechargeturn">
 <?php 
 $results = $db->query("SELECT * FROM recharge WHERE DATE='$date'");
@@ -29,7 +18,20 @@ if(!empty($row['RCSTART']) AND !empty($row['CASHEND'])){
     echo "Yet to be calculated";
 }
 ?></span>
+</div>
+<div class="in_right" style="margin-top: 5%;">
+    <small>Opening in Cash</small>
+    <input type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
+    <small>Opening Balance</small>
+    <input type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
+    <small>Closing in Cash</small>
+    <input type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
+    <small>Closing Balance</small>
+    <input type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
+    
+    <input id="rcsave" type="button" value="SAVE"/>
 
+</div>
 <script>
 $("#rcsave").click(function(){
     $.ajax({

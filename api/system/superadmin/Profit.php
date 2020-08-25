@@ -1,125 +1,200 @@
+<div class="row"><div class="col-sm-12">
 <?php if( $_SESSION["user"] === "superadmin"){ ?>
 
-<button class="btn btn-secondary center-block" onclick="window.location.href='/api/?__a=backup';">BACKUP All DATA INTO SINGLE NUT</button>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"/>
 
+<nav>
+  <ul class="pager">
+    <li class="next"><button class="btn btn-raised" onclick="window.location.href='/api/?__a=backup';">BACKUP All DATA INTO SINGLE NUT</button></li>
+  </ul>
+</nav>
 
+<div class="row">
+    <div class="col-sm-6">
+        <div class="ui labeled input">
+          <div class="ui label">
+            Starting Date:
+          </div>
+          <input type="date" id="min" name="min" class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="ui labeled input">
+        <div class="ui label">
+        Ending Date:
+        </div>
+        <input type="date" class="form-control" id="max" name="max">
+      </div>
+    </div>
+</div>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/data-table/bootstrap-table.css">
-    <link rel="stylesheet" href="css/data-table/bootstrap-editable.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-    <!-- jquery
-		============================================ -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="js/bootstrap.min.js"></script>
-</head>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-        <!-- Static Table Start -->
-        <div class="data-table-area mg-b-15">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="sparkline13-list">
-                            <div class="sparkline13-hd">
-                                <div class="main-sparkline13-hd">
-                                    <h1>OverAll <span class="table-project-n">STACK</span> DATA</h1>
-                                </div>
-                            </div>
-                            <div class="sparkline13-graph">
-                                <div class="datatable-dashv1-list custom-datatable-overright">
-                                    <div id="toolbar">
-                                        <select class="form-control dt-tb">
-											<option value="">Export Basic</option>
-											<option value="all">Export All</option>
-											<option value="selected">Export Selected</option>
-										</select>
-                                    </div>
-                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
-                                        <thead>
-                                            <tr>
-                                                <th data-field="state" data-checkbox="true"></th>
-                                                <th data-field="id">ID</th>
-                                                <th data-field="mobile" data-editable="true">Mobile Name</th>
-                                                <th data-field="imei">IMEI Number</th>
-                                                <th data-field="purchase">Purchase</th>
-                                                <th data-field="sold">Sold</th>
-                                                <th data-field="status">Status</th>
-                                                <th data-field="profit">Profit</th>
-                                                <th data-field="date">Date</th>
-                                                <th data-field="action">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
+<table class="ui celled table" id="secmobileprofit">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">IMEI NUMBER</th>
+      <th scope="col">MOBILE NAME</th>
+      <th scope="col">PURCHASE VALUE</th>
+      <th scope="col">SOLDOUT VALUE</th>
+      <th scope="col">PRODUCT STATUS</th>
+      <th scope="col">DATE</th>
+      <th scope="col">PRODUCT PROFIT</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
 $results = $db->query("SELECT * FROM oldmobiles");
 $i = 1;
 while($row = $results->fetchArray()){ ?>
                                             <tr>
-                                                <td></td>
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $row['MOBILENAME']; ?></td>
                                                 <td><?php echo $row['IMEI']; ?></td>
+                                                <td><?php echo $row['MOBILENAME']; ?></td>
                                                 <td><?php echo $row['RATE']; ?></td>
-                                                <td><?php echo $row['SOLDOUT']; ?></td>
+                                                <td><?php if(empty($row['SOLDOUT'])) echo 0; else echo $row['SOLDOUT']; ?></td>
                                                 <td><?php echo $row['STATUS']; ?></td>
-                                                <td><?php echo ($row['SOLDOUT']-$row['RATE']); ?></td>
-                                                <td><?php echo $row['SOLDOUTDATE']; ?></td>
-                                                <td class="datatable-ct"><i class="fa fa-check"></i>
-                                                </td>
+                                                <td><?php if(empty($row['SOLDOUTDATE'])) echo $row['CREATED']; else echo $row['SOLDOUTDATE']; ?></td>
+                                                <td><?php if(empty($row['SOLDOUT'])) echo 0; else echo ($row['SOLDOUT']-$row['RATE']); ?></td>
+                                                
                                             </tr>
                               <?php
 $i++;}
 ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
-      $('#table').DataTable( {
-        "order": [[ 3, "desc" ]]
-    } );</script>
-    <!-- data table JS
-		============================================ -->
-    <script src="js/data-table/bootstrap-table.js"></script>
-    <script src="js/data-table/tableExport.js"></script>
-    <script src="js/data-table/data-table-active.js"></script>
-    <script src="js/data-table/bootstrap-table-editable.js"></script>
-    <script src="js/data-table/bootstrap-editable.js"></script>
-    <script src="js/data-table/bootstrap-table-resizable.js"></script>
-    <script src="js/data-table/colResizable-1.5.source.js"></script>
-    <script src="js/data-table/bootstrap-table-export.js"></script>
+  </tbody>
+  <tfoot>
+        <tr>
+            <th scope="col">CURRENT </th>
+            <th scope="col">PAGE </th>
+            <th scope="col">TOTAL :</th>
+            <th scope="col">PURCHASE VALUE</th>
+            <th>SOLDOUT VALUE</th>
+            <th scope="col">PRODUCT STATUS</th>
+            <th scope="col"> </th>
+            <th scope="col">PRODUCT PROFIT</th>
+        </tr>
+    </tfoot>
+</table>
+
+        
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/se-2.2.13/jq-3.3.1/dt-1.10.21/af-2.3.5/b-1.6.3/b-html5-1.6.3/b-print-1.6.3/cr-1.5.2/kt-2.5.2/r-2.2.5/sc-2.0.2/sp-1.1.1/datatables.min.js"></script>
+<script>
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var min = Date.parse($('#min').val());
+        var max = Date.parse($('#max').val());
+        var date = Date.parse(data[6])  || 0; // use data for the Date column
+        console.log(min, max, date)
+        if ( min <= date && max >= date )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+
+   var table = $('#secmobileprofit').DataTable( {
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        initComplete: function () {
+            this.api().columns(5).every( function () {
+                var column = this;
+                var select = $('<select class="ui dropdown"><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        },
+        "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\₹,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+ 
+            // Total over all pages
+            profittotal = api
+                .column( 7 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            profitpageTotal = api
+                .column( 7, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+
+            // Total over all pages
+            soldtotal = api
+                .column( 4 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            soldpageTotal = api
+                .column( 4, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+
+            // Total over all pages
+            purchasetotal = api
+                .column( 3 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            purchasepageTotal = api
+                .column( 3, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Update footer
+            $( api.column( 7 ).footer(2) ).html('₹'+profitpageTotal +' ( ₹'+ profittotal +' total)');
+            $( api.column( 4 ).footer(2) ).html('₹'+soldpageTotal +' ( ₹'+ soldtotal +' total)');
+            $( api.column( 3 ).footer(2) ).html('₹'+purchasepageTotal +' ( ₹'+ purchasetotal +' total)');
+        }
+    } );
+
+$('#min, #max').change( function() {table.draw();});
+
+
+</script>
+
+
+
+
+
 
 
 
@@ -127,3 +202,4 @@ $i++;}
 <?php }else{
     echo "<h1>Session Expired</h1><h3>Page Not Found</h3>";
 } ?>
+</div></div>

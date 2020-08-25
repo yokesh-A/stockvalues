@@ -152,18 +152,19 @@ margin: 15px auto;
 </style>
 <div class="row">
     <div class="col-md-12">
-        <div class="box-left" id="right-tab">
+        <div class="box-left">
+            <div class="in_left">
+                <header>PICK A DATE</header>
+                <input type="date" id="date">
+            </div>
+        </div>
+        <div class="box-right" id="right-tab">
             <div class="logo">
             <i class="fa fa-5x fa-money" aria-hidden="true"></i>
                 <header>Please Select The Date First</header>
             </div>
         </div>
-        <div class="box-right">
-            <div class="in_right">
-                <header>PICK A DATE</header>
-                <input type="date" id="date">
-            </div>
-        </div>
+        
     </div>
 </div>
 
