@@ -137,7 +137,6 @@ $.fn.dataTable.ext.search.push(
         var min = Date.parse($('#min').val());
         var max = Date.parse($('#max').val());
         var date = Date.parse(data[6])  || 0; // use data for the Date column
-        console.log(min, max, date)
         if ( min <= date && max >= date )
         {
             return true;
