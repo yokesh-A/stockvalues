@@ -40,7 +40,48 @@ EOF;
        if(!$ret){
           notify($db->lastErrorMsg());
        } else {
-          notify("Installation Completed Successfully...");
+   $sql =<<<EOF
+   CREATE TABLE products
+   (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   NAME          CHAR(50)    NOT NULL UNIQUE,
+   DESC    TEXT    NOT NULL,
+   PRICE         INT NOT NULL,
+   RATE          INT NOT NULL,
+   CURNTQNTY       INT,
+   SOLDOUTQNTY       INT,
+   STATUS        CHAR(50)  NOT NULL,
+   CREATED DATETIME DEFAULT CURRENT_TIMESTAMP);
+EOF;
+          
+             $ret = $db->exec($sql);
+             if(!$ret){
+                notify($db->lastErrorMsg());
+             } else {
+
+   $sql =<<<EOF
+   CREATE TABLE soldout
+   (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   NAME          CHAR(50)    NOT NULL,
+   DESC    TEXT    NOT NULL,
+   PRICE         INT NOT NULL,
+   RATE          INT NOT NULL,
+   QNTY       INT,
+   SOLDOUT       INT,
+   SOLDOUTDATE   DATE,
+   STATUS        CHAR(50)  NOT NULL,
+   CREATED DATETIME DEFAULT CURRENT_TIMESTAMP);
+EOF;
+                      
+   $ret = $db->exec($sql);
+   if(!$ret){
+      notify($db->lastErrorMsg());
+   } else {
+      notify("Installation Completed Successfully...");
+   }
+             
+
+
+           }
        }
 
      }

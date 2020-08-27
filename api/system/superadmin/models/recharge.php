@@ -19,17 +19,32 @@ if(!empty($row['RCSTART']) AND !empty($row['CASHEND'])){
 }
 ?></span>
 </div>
-<div class="in_right" style="margin-top: 5%;">
-    <small>Opening in Cash</small>
-    <input type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
-    <small>Opening Balance</small>
-    <input type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
-    <small>Closing in Cash</small>
-    <input type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
-    <small>Closing Balance</small>
-    <input type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
+<div class="ui form col-md-8">
+
+    <div class="ui right labeled input field">
+        <label for="cashstart" class="ui label">Opening in Cash ₹</label>
+        <input type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
+        <div class="ui basic label">.INR</div>
+    </div>
+    <div class="ui right labeled input field">
+        <label for="rcstart" class="ui label">Opening Balance ₹</label>
+        <input type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
+        <div class="ui basic label">.INR</div>
+    </div>
     
-    <input id="rcsave" type="button" value="SAVE"/>
+    <div class="ui right labeled input field">
+        <label for="cashend" class="ui label">Closing in Cash ₹</label>
+        <input type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
+        <div class="ui basic label">.INR</div>
+    </div>
+    <div class="ui right labeled input field">
+        <label for="rcend" class="ui label">Closing Balance ₹</label>
+        <input type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
+        <div class="ui basic label">.INR</div>
+    </div>
+    
+    
+    <input class="ui inverted secondary button" id="rcsave" type="button" value="SAVE"/>
 
 </div>
 <script>

@@ -1,5 +1,6 @@
 <div class="row"><div class="col-sm-12">
 <?php if( $_SESSION["user"] === "superadmin"){ ?>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/se-2.2.13/jq-3.3.1/dt-1.10.21/af-2.3.5/b-1.6.3/b-html5-1.6.3/b-print-1.6.3/cr-1.5.2/kt-2.5.2/r-2.2.5/sc-2.0.2/sp-1.1.1/datatables.min.css"/>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"/>
@@ -104,7 +105,7 @@ $.fn.dataTable.ext.search.push(
         initComplete: function () {
             this.api().columns(5).every( function () {
                 var column = this;
-                var select = $('<select class="ui dropdown"><option value="">Show All</option></select>')
+                var select = $('<select class="ui selection dropdown" style="padding:0;"><option value="">Show All</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(

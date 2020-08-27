@@ -16,7 +16,7 @@
 }
 
 body {
-  background-color: var(--light-bg);
+  /*background-color: var(--light-bg);*/
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -5,12 +5,13 @@
 
 
 <!-- Profit Table CSS BEGINs-->
+    <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"/>
 
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js"></script>
+    <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/se-2.2.13/jq-3.3.1/dt-1.10.21/af-2.3.5/b-1.6.3/b-html5-1.6.3/b-print-1.6.3/cr-1.5.2/kt-2.5.2/r-2.2.5/sc-2.0.2/sp-1.1.1/datatables.min.js"></script>
 <!-- Profit Table CSS ENDs-->
 
@@ -254,7 +255,7 @@ li.fancyTab.active a {
         
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>	
-                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-desktop"></span><span class="hidden-xs">Connect</span></a>
+                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fas fa-globe"></span><span class="hidden-xs">Connect</span></a>
                     	<div class="whiteBlock"></div>
                     </li>
                     
@@ -272,13 +273,13 @@ li.fancyTab.active a {
                     
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-mortar-board"></span><span class="hidden-xs">Align</span></a>
+                        <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-cart-plus"></span><span class="hidden-xs">Add-stock</span></a>
                         <div class="whiteBlock"></div>
                     </li> 
                          
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-stack-overflow"></span><span class="hidden-xs">Capture</span></a>
+                        <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-shopping-cart"></span><span class="hidden-xs">In-stock</span></a>
                         <div class="whiteBlock"></div>
                     </li>
                     
@@ -290,7 +291,7 @@ li.fancyTab.active a {
                     <?php if( $_SESSION["user"] === "superadmin"){ ?>
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab6" href="#tabBody6" role="tab" aria-controls="tabBody6" aria-selected="true" data-toggle="tab" tabindex="0"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs">Profit</span></a>
+                        <a id="tab6" href="#tabBody6" role="tab" aria-controls="tabBody6" aria-selected="true" data-toggle="tab" tabindex="0"><i class="fa fa-line-chart" aria-hidden="true"></i><span class="hidden-xs">Profit</span></a>
                         <div class="whiteBlock"></div>
                     </li>
                     <?php } ?>
