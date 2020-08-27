@@ -10,7 +10,9 @@ if(!empty($_REQUEST['name']) AND !empty($_REQUEST['price']) AND !empty($_REQUEST
     $CURNTQNTY = $_REQUEST['qty'];
     $SOLDOUTQNTY = $_REQUEST['qty'];
     $STATUS = "In-Stock";
+    
     $ret = $db->exec("INSERT INTO products (NAME,DESC,PRICE,RATE,CURNTQNTY,SOLDOUTQNTY,STATUS) VALUES ('$NAME', '$DESC', '$PRICE', '$RATE', '$CURNTQNTY', '$SOLDOUTQNTY', '$STATUS' )");
+    
 
    if(!$ret) {
     notify($db->lastErrorMsg());

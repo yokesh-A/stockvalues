@@ -34,7 +34,7 @@
       </div>
     </div>
 </div>
-
+<h2>Mobiles</h2>
 <table class="ui celled table" id="secmobileprofit">
   <thead>
     <tr>
@@ -82,6 +82,54 @@ $i++;}
     </tfoot>
 </table>
 
+
+<h2>All Products</h2>
+<table class="ui celled table" id="allproducts">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">PRODUCT NAME</th>
+      <th scope="col">PRODUCT DESC</th>
+      <th scope="col">PRODUCT VALUE</th>
+      <th scope="col">SOLDOUT AMOUNT</th>
+      <th scope="col">QUANTITY</th>
+      <th scope="col">DATE</th>
+      <th scope="col">PRODUCT PROFIT</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+$results = $db->query("SELECT * FROM soldout");
+$i = 1;
+while($row = $results->fetchArray()){ ?>
+                                            <tr>
+                                                <td><?php echo $i; ?></td>
+                                                <td><?php echo $row['NAME']; ?></td>
+                                                <td><?php echo $row['DESC']; ?></td>
+                                                <td>₹ <?php echo $row['RATE']; ?></td>
+                                                <td>₹ <?php echo $row['SOLDOUT']; ?></td>
+                                                <td><?php echo $row['QNTY']; ?></td>
+                                                <td><?php echo $row['SOLDOUTDATE']; ?></td>
+                                                <td>₹ <?php echo (($row['SOLDOUT']-$row['RATE'])*$row['QNTY']); ?></td>
+                                                
+                                            </tr>
+                              <?php
+$i++;}
+?>
+  </tbody>
+  <tfoot>
+        <tr>
+            <th scope="col">CURRENT </th>
+            <th scope="col">PAGE </th>
+            <th scope="col">TOTAL :</th>
+            <th scope="col">PRODUCT VALUE</th>
+            <th>SOLDOUT AMOUNT</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col">PRODUCT PROFIT</th>
+        </tr>
+    </tfoot>
+</table>
         
 <script>
 $.fn.dataTable.ext.search.push(
@@ -98,7 +146,7 @@ $.fn.dataTable.ext.search.push(
     }
 );
 
-   var table = $('#secmobileprofit').DataTable( {
+   var mobiles = $('#secmobileprofit').DataTable( {
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
@@ -188,9 +236,81 @@ $.fn.dataTable.ext.search.push(
         }
     } );
 
-$('#min, #max').change( function() {table.draw();});
+$('#min, #max').change( function() {mobiles.draw();});
+
+var products = $('#allproducts').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\₹,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+ 
+            // Total over all pages
+            profittotal = api
+                .column( 7 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            profitpageTotal = api
+                .column( 7, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+
+            // Total over all pages
+            soldtotal = api
+                .column( 4 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            soldpageTotal = api
+                .column( 4, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+
+            // Total over all pages
+            purchasetotal = api
+                .column( 3 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            purchasepageTotal = api
+                .column( 3, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Update footer
+            $( api.column( 7 ).footer(2) ).html('₹'+profitpageTotal +' ( ₹'+ profittotal +' total)');
+            $( api.column( 4 ).footer(2) ).html('₹'+soldpageTotal +' ( ₹'+ soldtotal +' total)');
+            $( api.column( 3 ).footer(2) ).html('₹'+purchasepageTotal +' ( ₹'+ purchasetotal +' total)');
+        }
+    
+    });
 
 
+$('#min, #max').change( function() {products.draw();});
 </script>
 
 

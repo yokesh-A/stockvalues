@@ -1,7 +1,7 @@
 <?php
 if(!empty($_REQUEST['id']) AND !empty($_REQUEST['soldrate']) AND !empty($_REQUEST['soldqty']) AND ($_REQUEST['soldqty']>0) ){
     $id = $_REQUEST['id'];
-    $results = $db->query("SELECT CURNTQNTY FROM products WHERE ID = '$id'");
+    $results = $db->query("SELECT * FROM products WHERE ID = '$id'");
     $row = $results->fetchArray();
     if(($row['CURNTQNTY']-$_REQUEST['soldqty'])>=0){
         $currentqty = ($row['CURNTQNTY']-$_REQUEST['soldqty']);
