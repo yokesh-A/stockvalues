@@ -329,5 +329,6 @@ $('#min, #max').change( function() {products.draw();});
 
 <?php }else{
     echo "<h1>Session Expired</h1><h3>Page Not Found</h3>";
+    echo "<script>setTimeout(function(){ window.location.href='/'; }, 2000);</script>";
 } ?>
 </div></div>
