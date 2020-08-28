@@ -17,7 +17,7 @@
 </nav>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="text-align: center;">
         <div class="ui labeled input">
           <div class="ui label">
             Starting Date:
@@ -25,7 +25,7 @@
           <input type="date" id="min" name="min" value="<?php echo date("Y-m-d", strtotime("-28 day"));?>">
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="text-align: center;">
       <div class="ui labeled input">
         <div class="ui label">
         Ending Date:

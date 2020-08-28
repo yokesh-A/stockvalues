@@ -19,7 +19,7 @@ if(!empty($row['RCSTART']) AND !empty($row['CASHEND'])){
 }
 ?></span>
 </div>
-<div class="ui form col-md-8">
+<div class="ui form col-sm-6">
 
     <div class="ui right labeled input field">
         <label for="cashstart" class="ui label">Opening in Cash ₹</label>
