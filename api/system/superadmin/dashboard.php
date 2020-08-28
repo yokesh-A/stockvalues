@@ -382,10 +382,14 @@ $(document).ready(function() {
               }
             if (numItems == 2){
                   $("li.fancyTab").width('50%');
-              }  
+              }
+        
+   
+
+  
       });
 
-$(document).ready(function() {
+$(window).load(function() {
 
 $('.fancyTabs').each(function() {
 
