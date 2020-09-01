@@ -149,9 +149,16 @@ margin: 15px auto;
     color: #505050;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+.input_box {
+    width: 0% !important;
+  }
+}
+
 </style>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         <h2 class="logo">Maintance Recharges.</h2>
         <div class="col-md-4 col-sm-3 logo field">
             <div class="ui labeled input field">
@@ -161,15 +168,16 @@ margin: 15px auto;
                 <input type="date" id="date">
             </div>
         </div>
-        <div class="col-md-8 col-sm-3" id="right-tab">
+    </div>
+    
+    <div class="col-md-8 col-sm-3" id="right-tab">
             <div class="logo">
             <i class="fa fa-5x fa-money" aria-hidden="true"></i>
                 <header>Please Select The Date First</header>
             </div>
         </div>
-        
-    </div>
 </div>
+
 
 <script>
 $("#date").change(function(){

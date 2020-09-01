@@ -33,7 +33,7 @@ if(!empty($_REQUEST['id']) AND !empty($_REQUEST['soldrate']) AND !empty($_REQUES
 
 ?>
 <h2>Sell Products.</h2> 
-        <table id="Newproductslist" class="table table-responsive">
+        <table id="Newproductslist" class="ui celled table">
                         <thead>
                             <tr>
                             <th scope="col">#</th>

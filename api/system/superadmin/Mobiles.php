@@ -1,4 +1,10 @@
 <style>
+.dataTables_filter{
+    float:right;
+    margin-right:15%;
+}
+</style>
+<style>
     * { box-sizing:border-box; }
 
 /* basic stylings ------------------------------------------ */
@@ -149,7 +155,7 @@ input:focus ~ .highlight {
             
             </form>
     </div>
-    <div class="col-xs-6" id="instocklist">
+    <div class="col-sm-6" id="instocklist">
             
             <h2>Second Handed Mobiles<small>IN STOCK</small></h2>
             <h2>FETCHING DATA .....</h2>

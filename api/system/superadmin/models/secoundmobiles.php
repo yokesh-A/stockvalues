@@ -38,8 +38,8 @@ if(!empty($_REQUEST['soldimei']) AND !empty($_REQUEST['soldrate'])){
 
 
     <div class="row">
-                    <div class="col-xs-12">
-                    <table id="mobilesinstock" class="table table-responsive">
+                    <div class="col-md-6">
+                    <table id="mobilesinstock" class="ui celled table">
                         <thead>
                             <tr>
                             <th scope="col">#</th>

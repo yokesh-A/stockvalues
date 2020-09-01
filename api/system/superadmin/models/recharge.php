@@ -19,27 +19,27 @@ if(!empty($row['RCSTART']) AND !empty($row['CASHEND'])){
 }
 ?></span>
 </div>
-<div class="ui form col-sm-6">
+<div class="ui form logo">
 
-    <div class="ui right labeled input field">
+    <div class="ui right labeled input field col-md-8">
         <label for="cashstart" class="ui label">Opening in Cash ₹</label>
-        <input type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
+        <input class="input_box" type="number" id="cashstart" value="<?php echo $row['CASHSTART'] ; ?>" placeholder="Opening in Cash"/>
         <div class="ui basic label">.INR</div>
     </div>
-    <div class="ui right labeled input field">
+    <div class="ui right labeled input field col-md-8">
         <label for="rcstart" class="ui label">Opening Balance ₹</label>
-        <input type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
+        <input class="input_box" type="number" id="rcstart" value="<?php echo $row['RCSTART'] ; ?>" placeholder="Opening Balance"/>
         <div class="ui basic label">.INR</div>
     </div>
     
-    <div class="ui right labeled input field">
+    <div class="ui right labeled input field col-md-8">
         <label for="cashend" class="ui label">Closing in Cash ₹</label>
-        <input type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
+        <input class="input_box" type="number" id="cashend" value="<?php echo $row['CASHEND'] ; ?>" placeholder="Closing in Cash"/>
         <div class="ui basic label">.INR</div>
     </div>
-    <div class="ui right labeled input field">
+    <div class="ui right labeled input field col-md-8">
         <label for="rcend" class="ui label">Closing Balance ₹</label>
-        <input type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
+        <input class="input_box" type="number" id="rcend" value="<?php echo $row['RCEND'] ; ?>" placeholder="Closing Balance"/>
         <div class="ui basic label">.INR</div>
     </div>
     
