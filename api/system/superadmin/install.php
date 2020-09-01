@@ -76,7 +76,24 @@ EOF;
    if(!$ret){
       notify($db->lastErrorMsg());
    } else {
-      notify("Installation Completed Successfully...");
+
+      $sql =<<<EOF
+   CREATE TABLE funds
+   (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   NAME          CHAR(50)    NOT NULL,
+   infund    INT,
+   outfund        INT,
+   STATUS        CHAR(50)  NOT NULL,
+   CREATED DATETIME DEFAULT CURRENT_TIMESTAMP);
+EOF;
+                      
+      $ret = $db->exec($sql);
+      if(!$ret){
+         notify($db->lastErrorMsg());
+      } else {
+         notify("Installation Completed Successfully...");
+      }
+
    }
              
 

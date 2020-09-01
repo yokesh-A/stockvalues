@@ -255,7 +255,7 @@ li.fancyTab.active a {
         
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>	
-                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fas fa-globe"></span><span class="hidden-xs">Connect</span></a>
+                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-exchange"></span><span class="hidden-xs">Connect</span></a>
                     	<div class="whiteBlock"></div>
                     </li>
                     
@@ -279,13 +279,13 @@ li.fancyTab.active a {
                          
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-shopping-cart"></span><span class="hidden-xs">In-stock</span></a>
+                        <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-cart-arrow-down"></span><span class="hidden-xs">In-stock</span></a>
                         <div class="whiteBlock"></div>
                     </li>
                     
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab5" href="#tabBody5" role="tab" aria-controls="tabBody5" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-question-circle"></span><span class="hidden-xs">Order</span></a>
+                        <a id="tab5" href="#tabBody5" role="tab" aria-controls="tabBody5" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-balance-scale"></span><span class="hidden-xs">Funds</span></a>
                         <div class="whiteBlock"></div>
                     </li>
                     <?php if( $_SESSION["user"] === "superadmin"){ ?>
