@@ -29,11 +29,13 @@ if(isset($_REQUEST['__a'])){
                 $_SESSION["log"]="open";
                 $_SESSION["user"]="superadmin";
                 $_REQUEST['__a'] = "connect";
+                $_SESSION["user_name"]="Admin_user"; // display purspoe
             }else{  //normal admin
                 if($_REQUEST['user'] == "user" AND $_REQUEST['password'] == "pass"){
                     $_SESSION["log"]="open";
                     $_SESSION["user"]="user";
                     $_REQUEST['__a'] = "connect";
+                    $_SESSION["user_name"]="USER_NORMAL"; // display purspoe
                 }else{
                     notify("Wrong Creditials");
                 }

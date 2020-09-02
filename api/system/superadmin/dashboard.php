@@ -406,3 +406,15 @@ $('.fancyTabs').each(function() {
 });
 
 </script>
+
+<script>
+function logout(){
+    $.ajax({
+  type: 'GET',
+  url: "api",
+  dataType: 'text',
+  data: {__a: "logout"},
+  success: function(Data) {$("#tabBody").html(Data);}
+});
+}
+</script>
